@@ -20,6 +20,9 @@ class Pessoa(ABC):
     def __repr__(self):
         return f"Pessoa(nome='{self.__nome}', RG='{self.__RG}', CPF='{self.__CPF}')"
 
+    def get_nome(self):
+        return self.__nome
+
     @abstractmethod
     def assinatura_eletronica(self):
         pass
@@ -95,3 +98,4 @@ class Juiz(Pessoa):
         dados_em_byte = dados_para_hash.encode('utf-8')
         hash = hashlib.sha1(dados_em_byte)
         return hash.hexdigest()
+        
